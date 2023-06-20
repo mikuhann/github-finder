@@ -5,12 +5,13 @@ import githubReducer from './GithubReducer';
 const GITHUB_URL = process.env.REACT_APP_GITHUB_URL;
 const GITHUB_TOKEN = process.env.REACT_APP_GITHUB_TOKEN;
 const GithubContext = createContext();
-const initialState = {
-  users: [],
-  loading: false,
-}
 
 export const GithubProvider = ({ children }) => {
+  const initialState = {
+    users: [],
+    loading: false,
+  }
+
   const [state, dispatch] = useReducer(githubReducer, initialState);
 
   const setLoading = () => dispatch({ type: 'SET_LOADING' });
