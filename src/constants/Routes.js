@@ -1,4 +1,5 @@
 export const ROUTES = {
   home: '/',
-  about: '/about'
+  about: '/about',
+  not_found: '/*',
 }
