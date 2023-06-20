@@ -1,8 +1,10 @@
+import UserList from '../components/users/UserList';
+
 function Home() {
   return (
-    <div className='text-6xl'>
-      Welkome
-    </div>
+    <>
+      < UserList />
+    </>
   );
 }
 
