@@ -1,21 +1,29 @@
+import { Actions } from '../../constants/context/github/Actions';
+
 const githubReducer = (state, action) => {
   const { type, payload } = action;
 
   switch (type) {
-    case 'GET_USERS':
+    case Actions.search_users:
       return {
         ...state,
         users: payload,
         loading: false,
-      }
-    case 'SET_LOADING':
+      };
+
+    case Actions.clear_users:
+      return {
+        ...state,
+        users: []
+      };
+    case Actions.set_loading:
       return {
         ...state,
         loading: true,
-      }
+      };
     default:
       return state;
   }
-}
+};
 
 export default githubReducer;
