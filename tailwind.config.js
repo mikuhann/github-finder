@@ -7,7 +7,13 @@ module.exports = {
     extend: {},
   },
   daisyui: {
-    themes: ['light', 'dark', 'cyberpunk']
+    themes: ['light', 'dark', 'cyberpunk', {
+      dark: {
+        ...require("daisyui/src/theming/themes")["[data-theme=dark]"],
+        "neutral-content": "#ffffff",
+        "base-content": "#ffffff"
+      }
+    }]
   },
   plugins: [require('daisyui')],
 }
