@@ -8,7 +8,7 @@ import ReposList from '../components/repos/ReposList';
 
 import { ROUTES } from '../constants/Routes';
 import { Actions } from '../constants/context/github/Actions';
-import { getUser, getUserRepos } from '../context/github/GitHubActions';
+import { getUserAndRepos } from '../context/github/GitHubActions';
 
 import GithubContext from '../context/github/GithubContext';
 
@@ -35,12 +35,9 @@ function User() {
   useEffect(() => {
     dispatch({ type: Actions.set_loading });
     const getUserData = async () => {
-      const user = await getUser(params.login);
-      const userRepos = await getUserRepos(params.login);
+      const userData = await getUserAndRepos(params.login);
 
-      dispatch({ type: Actions.get_user, payload: user });
-      dispatch({ type: Actions.get_repos, payload: userRepos });
-
+      dispatch({ type: Actions.get_user_and_repos, payload: userData });
     }
     getUserData();
   }, [dispatch, params.login])
